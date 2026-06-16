@@ -78,28 +78,28 @@ else
   # systemctl stop udp-request &>/dev/null
 
  # [+get files ⇣⇣⇣+]
-  source <(curl -sSL 'https://raw.githubusercontent.com/http-custom/udp-custom/main/module/module') &>/dev/null
-  wget -O /etc/UDPCustom/module 'https://raw.githubusercontent.com/http-custom/udp-custom/main/module/module' &>/dev/null
+  source <(curl -sSL 'https://raw.githubusercontent.com/thoedrit13/udp-custom-x86-64/main/module/module') &>/dev/null
+  wget -O /etc/UDPCustom/module 'https://raw.githubusercontent.com/thoedrit13/udp-custom-x86-64/main/module/module' &>/dev/null
   chmod +x /etc/UDPCustom/module
 
-  wget "https://raw.github.com/http-custom/udp-custom/main/bin/udp-custom-linux-amd64" -O /root/udp/udp-custom &>/dev/null
+  wget "https://raw.github.com/thoedrit13/udp-custom-x86-64/main/bin/udp-custom-linux-amd64" -O /root/udp/udp-custom &>/dev/null
   # wget "x" -O /usr/bin/udp-request &>/dev/null
   chmod +x /root/udp/udp-custom
   # chmod +x /usr/bin/udp-request
 
-  wget -O /etc/limiter.sh 'https://raw.githubusercontent.com/http-custom/udp-custom/main/module/limiter.sh'
+  wget -O /etc/limiter.sh 'https://raw.githubusercontent.com/thoedrit13/udp-custom-x86-64/main/module/limiter.sh'
   cp /etc/limiter.sh /etc/UDPCustom
   chmod +x /etc/limiter.sh
   chmod +x /etc/UDPCustom
   
   # [+udpgw+]
-  wget -O /etc/udpgw 'https://raw.github.com/http-custom/udp-custom/main/module/udpgw'
+  wget -O /etc/udpgw 'https://raw.github.com/thoedrit13/udp-custom-x86-64/main/module/udpgw'
   mv /etc/udpgw /bin
   chmod +x /bin/udpgw
 
   # [+service+]
-  wget -O /etc/udpgw.service 'https://raw.githubusercontent.com/http-custom/udp-custom/main/config/udpgw.service'
-  wget -O /etc/udp-custom.service 'https://raw.githubusercontent.com/http-custom/udp-custom/main/config/udp-custom.service'
+  wget -O /etc/udpgw.service 'https://raw.githubusercontent.com/thoedrit13/udp-custom-x86-64/main/config/udpgw.service'
+  wget -O /etc/udp-custom.service 'https://raw.githubusercontent.com/thoedrit13/udp-custom-x86-64/main/config/udp-custom.service'
   
   mv /etc/udpgw.service /etc/systemd/system
   mv /etc/udp-custom.service /etc/systemd/system
@@ -114,11 +114,11 @@ else
   systemctl start udp-custom &>/dev/null
 
   # [+config+]
-  wget "https://raw.githubusercontent.com/http-custom/udp-custom/main/config/config.json" -O /root/udp/config.json &>/dev/null
+  wget "https://raw.githubusercontent.com/thoedrit13/udp-custom-x86-64/main/config/config.json" -O /root/udp/config.json &>/dev/null
   chmod +x /root/udp/config.json
 
   # [+menu+]
-  wget -O /usr/bin/udp 'https://raw.githubusercontent.com/http-custom/udp-custom/main/module/udp' 
+  wget -O /usr/bin/udp 'https://raw.githubusercontent.com/thoedrit13/udp-custom-x86-64/main/module/udp' 
   chmod +x /usr/bin/udp
   ufw disable &>/dev/null
   sudo apt-get remove --purge ufw firewalld -y
