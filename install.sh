@@ -24,7 +24,7 @@ sudo apt install -y curl
 sudo apt install -y dos2unix
 sudo apt install -y neofetch
 
-source <(curl -sSL 'https://raw.githubusercontent.com/http-custom/udp-custom/main/module/module')
+source <(curl -sSL 'https://raw.githubusercontent.com//thoedrit13/udp-custom-x86-64/main/module/module')
 
 time_reboot() {
   print_center -ama "${a92:-System/Server Reboot In} $1 ${a93:-Seconds}"
