@@ -29,7 +29,7 @@ udp
  * Edit path config /root/udp/config.json, after changing it then reboot
  * Optional port exclude separated by coma, ex. 53,5300
 
-ในเริ่นต้น จะเพิ่ม DNAT iptavles เอง แต่ใช้ exclude ดีกว่า
+ในเริ่นต้น จะเพิ่ม DNAT iptavles เอง ถ้าต้องการเว้น port ให้ใส่ 
 
 เช่น 
 ```
@@ -43,23 +43,8 @@ sudo iptables -t nat -L PREROUTING -n --line-numbers
 เช่น
 ``` 
 2    DNAT       udp  --  0.0.0.0/0            0.0.0.0/0            udp dpts:1:65535 to::36712
-``` 
-ถ้าจะลบ
-``` 
-sudo iptables -t nat -D PREROUTING 2
-``` 
-ถ้าจะเพิ่มเช่น
-``` 
-sudo iptables -t nat -A PREROUTING -p udp --dport 1:65535 -j REDIRECT --to-ports 36712
-หรือ
-sudo iptables -t nat -A PREROUTING -p udp --dport 1:59208 -j REDIRECT --to-ports 36712
-sudo iptables -t nat -A PREROUTING -p udp --dport 59210:65535 -j REDIRECT --to-ports 36712
 ```
-ถ้าจะลบ
-```
-sudo iptables -t nat -D PREROUTING -p udp --dport 1:65535 -j REDIRECT --to-ports 36712
-sudo iptables -t nat -D PREROUTING -p udp --dport 1:59208 -j REDIRECT --to-ports 36712
-sudo iptables -t nat -D PREROUTING -p udp --dport 59210:65535 -j REDIRECT --to-ports 36712
+
 
 ``` 
 
