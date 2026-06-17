@@ -26,7 +26,7 @@ git clone https://github.com/thoedrit13/udp-custom-x86-64 && cd udp-custom-x86-6
 ``` 
 sudo iptables -t nat -L PREROUTING -n --line-numbers
 ``` 
-
+จากนั้นสามารถใช้ได้เลย จากคำสั่ง
 ``` 
 udp
 ``` 
