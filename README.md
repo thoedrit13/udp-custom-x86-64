@@ -41,7 +41,7 @@ udp
 ในเริ่นต้น จะเพิ่ม DNAT iptavles เอง ถ้าต้องการเว้น port ให้ใส่ 
 เช่น 
 ```
-nano ~/udp-custom-x86-64/config/config.json
+nano /root/udp/config.json
 ```
 เพิ่ม
 ```
