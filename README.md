@@ -115,18 +115,16 @@ Protocol udp
 
 วิธีลบ
 
-ล้างกฎ Iptables
-
-เช่น
-```
-iptables -t nat -D PREROUTING -p udp -m multiport ! --dports 51820 -m addrtype --dst-type LOCAL -j DNAT --to-destination :36712
-iptables -t nat -D PREROUTING -p udp -m multiport ! --dports 51820,12451 -m addrtype --dst-type LOCAL -j DNAT --to-destination :36712
-```
-หรือใช้วิธี ลบตามเลข เช่น 1
+ล้างกฎ Iptables ให้หมด
 ```
 iptables -t nat -L PREROUTING -n --line-numbers
-iptables -t nat -D PREROUTING 1
 ```
+ดูว่าคือ rule ไหน เช่น 2
+```
+iptables -t nat -D PREROUTING 2
+```
+
+
 
 ปิดการทำงานและลบ Systemd Service
 ```
