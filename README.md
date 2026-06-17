@@ -131,3 +131,36 @@ Protocol udp
 ถึงแม้เราเตอร์จะโยนขยะหรือทราฟฟิกแปลกๆ เข้ามาทุกพอร์ต แต่ตัว UFW บน Ubuntu จะ "เตะทิ้งทั้งหมด" และจะยอมให้ผ่านเฉพาะพอร์ตที่คุณเคยพิมพ์คำสั่งเปิดไว้เท่านั้น (เช่น 22, 8096, 8080, 36712 เป็นต้น)
 
 พอตั้งค่า DMZ เสร็จปุ๊บ ลองกด Connect ในแอป HTTP Custom อีกรอบได้เลยครับ คราวนี้ข้อมูล UDP ตั้งแต่ 1-65535 จะไหลทะลักเข้าเซิร์ฟเวอร์คุณแบบไม่มีเราเตอร์มากั้นแล้วครับ!
+
+
+
+
+วิธีลบ
+
+ล้างกฎ Iptables
+```
+เช่น
+iptables -t nat -D PREROUTING -p udp -m multiport ! --dports 51820 -m addrtype --dst-type LOCAL -j DNAT --to-destination :36712
+iptables -t nat -D PREROUTING -p udp -m multiport ! --dports 51820,12451 -m addrtype --dst-type LOCAL -j DNAT --to-destination :36712
+หรือใช้วิธี ลบตามเลข เช่น 1
+iptables -t nat -L PREROUTING -n --line-numbers
+iptables -t nat -D PREROUTING 1
+```
+
+ปิดการทำงานและลบ Systemd Service
+```
+sudo systemctl stop udp-custom
+sudo systemctl disable udp-custom
+sudo rm /etc/systemd/system/udp-custom.service
+sudo systemctl daemon-reload
+```
+
+ลบโฟลเดอร์และไฟล์โปรแกรมทิ้ง
+
+```
+sudo rm -rf /root/udp
+sudo rm -rf /root/udp/udp-custom
+sudo rm -rf udp-custom-x86-64
+sudo rm /root/udp/config.json
+```
+
