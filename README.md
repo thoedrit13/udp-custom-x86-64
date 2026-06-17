@@ -30,11 +30,28 @@ udp
  * Optional port exclude separated by coma, ex. 53,5300
 
 ในเริ่นต้น จะเพิ่ม DNAT iptavles เอง ถ้าต้องการเว้น port ให้ใส่ 
-
 เช่น 
+```
+nano ~/udp-custom-x86-64/config/config.json
+```
+เพิ่ม
 ```
 "exclude": "22,53,80,443,1194,2096,8088,59209"
 ```
+เป็น
+```
+{
+  "listen": ":36712",
+  "stream_buffer": 33554432,
+  "receive_buffer": 83886080,
+  "exclude": "59209",
+  "auth": {
+    "mode": "passwords"
+  }
+}
+```
+
+
 
 เช็ค 
 ``` 
