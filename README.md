@@ -79,6 +79,29 @@ sudo iptables -t nat -L PREROUTING -n --line-numbers
 2    DNAT       udp  --  0.0.0.0/0            0.0.0.0/0            udp dpts:1:65535 to::36712
 ```
 
+ถ้าต้องการยกเว้น port และทำผ่าน config ไม่ผ่าน
+
+ลบ iptables ตัวเดิมออก
+```
+iptables -t nat -L PREROUTING -n --line-numbers
+```
+ดูว่าคือ rule ไหน เช่น 2 
+```
+iptables -t nat -D PREROUTING 2
+```
+เพิ่ม rule ตัวใหม่เอง
+เช่น ยกเว้น 51820
+```
+iptables -t nat -I PREROUTING 1 -p udp -m multiport ! --dports 51820 -m addrtype --dst-type LOCAL -j DNAT --to-destination :36712
+```
+ยกเว้น 12451 51820
+```
+iptables -t nat -I PREROUTING 1 -p udp -m multiport ! --dports 51820,12451 -m addrtype --dst-type LOCAL -j DNAT --to-destination :36712
+```
+เก็บถาวรด้วย
+```
+iptables-save > /etc/iptables/rules.v4
+```
 
 ``` 
 
