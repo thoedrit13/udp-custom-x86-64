@@ -19,6 +19,9 @@ sudo -s
 git clone https://github.com/thoedrit13/udp-custom-x86-64 && cd udp-custom-x86-64 && chmod +x install.sh && ./install.sh
 ```
 ## Use
+
+หลังจากติดตั้งเสร็จ ให้ reboot เครื่อง เพื่อสร้างกฏ iptables ขึ้นมา
+
 ``` 
 udp
 ``` 
