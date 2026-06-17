@@ -132,13 +132,13 @@ Protocol udp
 
 พอตั้งค่า DMZ เสร็จปุ๊บ ลองกด Connect ในแอป HTTP Custom อีกรอบได้เลยครับ คราวนี้ข้อมูล UDP ตั้งแต่ 1-65535 จะไหลทะลักเข้าเซิร์ฟเวอร์คุณแบบไม่มีเราเตอร์มากั้นแล้วครับ!
 
-
+```
 
 
 วิธีลบ
 
 ล้างกฎ Iptables
-```
+
 เช่น
 iptables -t nat -D PREROUTING -p udp -m multiport ! --dports 51820 -m addrtype --dst-type LOCAL -j DNAT --to-destination :36712
 iptables -t nat -D PREROUTING -p udp -m multiport ! --dports 51820,12451 -m addrtype --dst-type LOCAL -j DNAT --to-destination :36712
