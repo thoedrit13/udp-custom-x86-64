@@ -101,6 +101,7 @@ iptables -t nat -L PREROUTING -n --line-numbers
 ```
 iptables -t nat -D PREROUTING 2
 sudo iptables-save > /etc/iptables/rules.v4
+apt install iptables-persistent
 ```
 
 
@@ -148,6 +149,7 @@ iptables -t nat -L PREROUTING -n --line-numbers
 ```
 iptables -t nat -D PREROUTING 2
 sudo iptables-save > /etc/iptables/rules.v4
+apt install iptables-persistent
 ```
 
 
