@@ -11,14 +11,13 @@ UDP (User Datagram Protocol) is a network communication protocol that operates o
 - ubuntu 20.04 [x86_64] ✅ _(recommended)_
 - [arm] ❌
 
-## Install
+## วิธีติดตั้ง
 ```
 sudo -i
 ``` 
 ```
 git clone https://github.com/thoedrit13/udp-custom-x86-64 && cd udp-custom-x86-64 && chmod +x install.sh && ./install.sh
 ```
-## Use
 
 หลังจากติดตั้งเสร็จ ให้ reboot เครื่อง เพื่อสร้างกฏ iptables ขึ้นมา
 
