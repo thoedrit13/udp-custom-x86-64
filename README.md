@@ -26,7 +26,31 @@ sudo systemctl enable udp-custom
 เช็คจาก
 ``` 
 sudo iptables -t nat -L PREROUTING -n --line-numbers
-``` 
+```
+จากนั้นแก้ systemd
+```
+nano /etc/systemd/system/udp-custom.service
+```
+แก้เป็น
+```
+[Unit]
+Description=UDP Custom by ePro Dev. Team
+Wants=network-online.target
+After=network-online.target docker.service
+
+[Service]
+User=root
+Type=simple
+ExecStart=/root/udp/udp-custom server --exclude 53,68,111,546,5353,7359,12451,41641,51820,53602
+WorkingDirectory=/root/udp/
+Restart=always
+RestartSec=2s
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
 จากนั้นสามารถใช้ได้เลย จากคำสั่ง
 ``` 
 udp
