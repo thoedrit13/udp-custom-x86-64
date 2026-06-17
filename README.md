@@ -57,11 +57,11 @@ nano /etc/systemd/system/udp-custom.service
 ```
 แก้ตรง ExecStart เพิ่ม --exclude เช่น 53,68,111,546,5353,7359,12451,41641,51820,53602 ใช้จริง
 ```
-ExecStart=/root/udp/udp-custom server --config /etc/config.json --exclude 53,68,111,546,5353,7359,12451,41641,51820,53602
+ExecStart=/root/udp/udp-custom server --exclude 53,68,111,546,5353,7359,12451,41641,51820,53602
 ```
 ยกเว้น 51820
 ```
-ExecStart=/root/udp/udp-custom server --config /etc/config.json --exclude 51820
+ExecStart=/root/udp/udp-custom server --exclude 51820
 ```
 
 บันทึกแล้ว
