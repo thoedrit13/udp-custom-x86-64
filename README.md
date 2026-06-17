@@ -53,7 +53,7 @@ nano ~/udp-custom-x86-64/config/config.json
 }
 ```
 
-
+จากนันต้อง reboot เครื่อง ถึงจะสร้างกฏขึ้นมา 
 
 เช็ค 
 ``` 
