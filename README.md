@@ -41,7 +41,7 @@ After=network-online.target docker.service
 [Service]
 User=root
 Type=simple
-ExecStart=/root/udp/udp-custom server --exclude 53,68,111,546,5353,7359,12451,41641,51820,53602
+ExecStart=/root/udp/udp-custom server
 WorkingDirectory=/root/udp/
 Restart=always
 RestartSec=2s
