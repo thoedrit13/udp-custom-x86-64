@@ -45,7 +45,11 @@ nano /root/udp/config.json
 ```
 เพิ่ม
 ```
-"exclude": "22,53,80,443,1194,2096,8088,59209"
+"exclude": [
+  53,
+  5300,
+  59209
+]
 ```
 เป็น
 ```
@@ -53,7 +57,9 @@ nano /root/udp/config.json
   "listen": ":36712",
   "stream_buffer": 33554432,
   "receive_buffer": 83886080,
-  "exclude": "59209",
+  "exclude": [
+    59209
+  ],
   "auth": {
     "mode": "passwords"
   }
