@@ -29,7 +29,12 @@ udp
  * Edit path config /root/udp/config.json, after changing it then reboot
  * Optional port exclude separated by coma, ex. 53,5300
 
-ในเริ่นต้น จะเพิ่ม DNAT iptavles เอง
+ในเริ่นต้น จะเพิ่ม DNAT iptavles เอง แต่ใช้ exclude ดีกว่า
+
+เช่น 
+```
+"exclude": "22,53,80,443,1194,2096,8088,59209"
+```
 
 เช็ค 
 ``` 
